@@ -1,0 +1,85 @@
+.userItem {
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  list-style: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  width: 800px;
+}
+
+.userItem:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #dee2e6;
+}
+
+.userName {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.userItem:hover .userName {
+  color: #667eea;
+}
+
+.userText {
+  margin: 0;
+  font-size: 14px;
+  color: #666666;
+}
+
+.userItem:hover .userText {
+  color: #667eea;
+}
+
+.userAge {
+  font-weight: 500;
+  color: #333333;
+}
+
+.highlight {
+  border-right: 4px solid #ff9800;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.2);
+}
+
+.highlight .userName {
+  color: #e65100;
+}
+
+.highlight .userText .userAge {
+  color: #e65100;
+  font-weight: 600;
+}
+
+.highlight:hover {
+  border-color: #ff9800;
+  transform: scale(1.02);
+}
+.highlight:hover .userName {
+  color: #bf360c;
+}
+
+.selected {
+  background-color: #e3e7f5;
+  border-left: 6px solid #1e88e5;
+}
+
+.selected .userName {
+  color: #1565c0;
+}
+
+.userItem.selected .userText .userAge {
+  color: #1565c0;
+  font-weight: 600;
+}
+
+.selected:hover {
+  border-color: #1e88e5;
+  transform: scale(1.03);
+}
