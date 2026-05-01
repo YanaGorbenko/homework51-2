@@ -25,6 +25,10 @@ export const UserControls = ({ sort, search, highlight }: Props) => {
     [debouncedSearch],
   );
 
+  const handleHighlight = useCallback(() => {
+    highlight();
+  }, [highlight]);
+
   return (
     <div className={css.container}>
       <input
@@ -38,7 +42,7 @@ export const UserControls = ({ sort, search, highlight }: Props) => {
         <option value="name">За ім'ям</option>
         <option value="age">За віком</option>
       </select>
-      <button className={css.highlightButton} onClick={() => highlight()}>
+      <button className={css.highlightButton} onClick={handleHighlight}>
         🔆 30+
       </button>
     </div>
