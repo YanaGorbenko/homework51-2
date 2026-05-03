@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 
 import { type User } from '../userData';
 import { UserItem } from '../UserItem/UserItem';
@@ -14,12 +14,6 @@ export const UserList = memo(
   ({ users, isHighlight, selectedUsers, onToggleSelect }: Props) => {
     console.log('📋 UserList рендер');
 
-    const handleSelect = useCallback(
-      (userId: string) => {
-        onToggleSelect(userId);
-      },
-      [onToggleSelect],
-    );
     return (
       <ul className={css.usersList}>
         {users.map(user => (
@@ -28,7 +22,7 @@ export const UserList = memo(
             user={user}
             isHighlight={isHighlight}
             isSelected={selectedUsers.includes(user.id)}
-            onSelect={() => handleSelect(user.id)}
+            onSelect={onToggleSelect}
           />
         ))}
       </ul>

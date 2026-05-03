@@ -6,7 +6,7 @@ interface Props {
   user: User;
   isHighlight: boolean;
   isSelected: boolean;
-  onSelect: () => void;
+  onSelect: (userId: string) => void;
 }
 
 export const UserItem = memo(
@@ -25,8 +25,12 @@ export const UserItem = memo(
       return classes.join(' ');
     }, [isHighlight, isSelected, user.age]);
 
+    const handleClick = useCallback(() => {
+      onSelect(user.id);
+    }, [onSelect, user.id]);
+
     return (
-      <li className={getUserClassNames()} onClick={onSelect}>
+      <li className={getUserClassNames()} onClick={handleClick}>
         <h3 className={css.userName}>{user.name}</h3>
         <p className={css.userText}>
           Вік: <span className={css.userAge}>{user.age}</span>
