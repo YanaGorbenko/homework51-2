@@ -1,6 +1,6 @@
 import type { User } from '../userData';
 import css from './UserItem.module.css';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 
 interface Props {
   user: User;
@@ -12,7 +12,7 @@ interface Props {
 export const UserItem = memo(
   ({ user, isHighlight, isSelected, onSelect }: Props) => {
     console.log(`👤 UserItem рендер`);
-    const getUserClassNames = useCallback(() => {
+    const getUserClassNames = () => {
       const classes = [css.userItem];
 
       if (isHighlight && user.age > 30) {
@@ -23,11 +23,11 @@ export const UserItem = memo(
       }
 
       return classes.join(' ');
-    }, [isHighlight, isSelected, user.age]);
+    };
 
-    const handleClick = useCallback(() => {
+    const handleClick = () => {
       onSelect(user.id);
-    }, [onSelect, user.id]);
+    };
 
     return (
       <li className={getUserClassNames()} onClick={handleClick}>
